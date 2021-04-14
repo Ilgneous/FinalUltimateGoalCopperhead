@@ -101,7 +101,7 @@ public class odomBlueLeftAuto0 extends LinearOpMode {
 
 
         robot.wobble.setPosition(0.52);
-        sleep(500);
+        sleep(250);
         //robot.strafeLeftGyro(2, 0.5, 3);
         robot.wobble.setPosition(0.8);
 
@@ -154,6 +154,8 @@ public class odomBlueLeftAuto0 extends LinearOpMode {
 
         drive.followTrajectory(traj5);
 
+        robot.wobble.setPosition(0.52);
+        sleep(250);
 
 
         sleep(2000);
