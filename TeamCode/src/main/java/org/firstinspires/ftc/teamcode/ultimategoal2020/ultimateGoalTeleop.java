@@ -76,7 +76,7 @@ public class ultimateGoalTeleop extends LinearOpMode {
                 robot.elevator.setPower(0);
             }
 
-            if (!robot.touch.getState() && !gamepad2.dpad_down)
+            if (robot.touch.getState() == false && !gamepad2.dpad_down)
             {
                 robot.elevator.setPower(-0.1);
             }
@@ -171,6 +171,10 @@ public class ultimateGoalTeleop extends LinearOpMode {
             {
                 robot.pulley1.setPower(-0.1);
             }
+            else if(!robot.highTouch.getState()){
+                robot.pulley1.setPower(0.1);
+                robot.pulley1.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+            }
             else
             {
                 robot.pulley1.setPower(0);
@@ -223,16 +227,6 @@ public class ultimateGoalTeleop extends LinearOpMode {
             else if(gamepad2.b){
                 robot.pusher.setPower(-1);
             }
-
-            else if(gamepad2.x) {
-                for (int i = 0; i < 4; i++) {
-                    robot.pusher.setPower(1);
-                    sleep(500);
-                    robot.pusher.setPower(-1);
-                    sleep(500);
-                }
-            }
-
             else
             {
                 robot.pusher.setPower(0);
@@ -270,7 +264,7 @@ public class ultimateGoalTeleop extends LinearOpMode {
         telemetry.update();*/
 
         robot.fL.setPower(v1 * speed);
-        robot.fR.setPower(v2 * speed);
+        robot.fR.setPower(v2 * speed * 0.9);
         robot.bL.setPower(-v3 * speed);
         robot.bR.setPower(-v4 * speed);
 
