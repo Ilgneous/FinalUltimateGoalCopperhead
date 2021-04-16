@@ -225,9 +225,9 @@ public class ultimateGoalTeleop extends LinearOpMode {
             }
 
             else if(gamepad2.x) {
-                for (int i = 0; i < 4; i++) {
+                for (int i = 0; i < 3; i++) {
                     robot.pusher.setPower(1);
-                    sleep(500);
+                    sleep(600);
                     robot.pusher.setPower(-1);
                     sleep(500);
                 }
